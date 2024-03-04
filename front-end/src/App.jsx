@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import PokeCards from './components/PokeCards';
+import PokeForm from './components/PokeForm';
 import './App.css'
-import PokeCard from './components/PokeCard';
 
 function App() {
   // State hooks and handlers for hooks
@@ -48,16 +49,7 @@ function App() {
           <input type='submit' />
         </form>
       </div>
-      <div id='outputCont'>
-        {pokemon.map((mon, i) => (
-          <PokeCard
-            name={mon.name}
-            types={mon.types}
-            img={mon.img}
-            key={i}
-          />
-        ))}
-      </div>
+      <PokeCards pokemon={pokemon} />
     </>
   )
 }

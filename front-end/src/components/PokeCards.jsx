@@ -1,5 +1,7 @@
-function PokeCard({ name, types, img, key }) {
-    
+import PropTypes from 'prop-types';
+
+function PokeCards({ pokemon }) {
+
     // Helper Functions
     // Change a word to title case
     const toTitleCase = (str) => {
@@ -18,12 +20,20 @@ function PokeCard({ name, types, img, key }) {
     }
 
     return (
-        <li key={key}>
-            <h3>{toTitleCase(name)}</h3>
-            <p>{typeString(types)}</p>
-            <img src={img}/>
-        </li>
+        <div id="outputCont">
+            {pokemon.map((mon, i) => (
+                <li key={i}>
+                    <h3>{toTitleCase(mon.name)}</h3>
+                    <p>{typeString(mon.types)}</p>
+                    <img src={mon.img} alt={`A picture of ${mon.name}`} />
+                </li>
+            ))}
+        </div>
     )
 }
 
-export default PokeCard;
+PokeCards.propTypes = {
+    pokemon: PropTypes.array
+}
+
+export default PokeCards;
