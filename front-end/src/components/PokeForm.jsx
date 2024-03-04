@@ -7,6 +7,7 @@ function PokeForm ({ setPokeName }) {
     const handleSubmit = e => {
         e.preventDefault();
         setPokeName(input);
+        setInput("");
     }
 
     return (

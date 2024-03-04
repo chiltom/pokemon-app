@@ -11,10 +11,6 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
-    console.log(pokeName);
-  }, [pokeName])
-
-  useEffect(() => {
     if (pokeData) {
       setPokemon([...pokemon, {'name': pokeData.name, 'types': pokeData.types, 'img': pokeData.sprites.front_default}]);
     }
