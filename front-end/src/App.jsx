@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <Navbar className='bg-body-tertiary'>
+      <Navbar className='bg-body-tertiary justify-content-between'>
         <Container>
           <Navbar.Brand href='#home'>
             <Image 
@@ -48,6 +48,7 @@ function App() {
             />{' '}
             PokeAPI Fetcher
           </Navbar.Brand>
+          <PokeForm setPokeName={setPokeName} />
         </Container>
       </Navbar>
       <div id='headerCont'>
