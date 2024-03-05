@@ -1,4 +1,8 @@
 import PropTypes from 'prop-types';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function PokeCards({ pokemon }) {
 
@@ -20,15 +24,23 @@ function PokeCards({ pokemon }) {
     }
 
     return (
-        <div id="outputCont">
-            {pokemon.map((mon, i) => (
-                <li key={i}>
-                    <h3>{toTitleCase(mon.name)}</h3>
-                    <p>{typeString(mon.types)}</p>
-                    <img src={mon.img} alt={`A picture of ${mon.name}`} />
-                </li>
-            ))}
-        </div>
+        <Container>
+            <Row xs={2} md={3} lg={4}>
+                {pokemon.map((mon, i) => (
+                    <Col key={i}>
+                        <Card style={{width: '18rem'}}>
+                            <Card.Img variant='top' src={mon.img} alt={`A picture of ${mon.name}`} />
+                            <Card.Body>
+                                <Card.Title>{`${toTitleCase(mon.name)}`}</Card.Title>
+                                <Card.Text>
+                                    {typeString(mon.types)}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     )
 }
 

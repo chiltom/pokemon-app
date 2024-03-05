@@ -51,11 +51,6 @@ function App() {
           <PokeForm setPokeName={setPokeName} />
         </Container>
       </Navbar>
-      <div id='headerCont'>
-        <h1 className='headerText'>PokeAPI Fetcher</h1>
-        <p className='headerText'><em>A simple Pokemon data fetcher</em></p>
-      </div>
-      <PokeForm setPokeName={setPokeName} />
       <PokeCards pokemon={pokemon} />
     </>
   )

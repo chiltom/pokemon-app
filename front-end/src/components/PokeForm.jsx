@@ -13,9 +13,10 @@ function PokeForm ({ setPokeName }) {
 
     return (
         <>
-            <Form>
-                <Form.Label htmlFor='inputQuery'>Search: </Form.Label>
+            <Form className='flex flex-row items-baseline'>
+                <Form.Label className="mr-4" htmlFor='inputQuery'>Search: </Form.Label>
                 <Form.Control
+                    className='w-40'
                     size='sm'
                     type='text'
                     id='inputQuery'
@@ -23,7 +24,7 @@ function PokeForm ({ setPokeName }) {
                     placeholder='Type here: '
                     onChange={e => setInput(e.target.value)}
                 />
-                <Form.Control type='submit' onClick={handleSubmit}/>
+                <Form.Control size='sm' type='submit' onClick={handleSubmit}/>
             </Form>
         </>
     )
