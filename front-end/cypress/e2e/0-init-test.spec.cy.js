@@ -17,3 +17,27 @@ describe('Initial render test suite', () => {
         cy.get('#cardHolder').children().should('have.length', 0);
     });
 });
+
+// Pokemon name searching tests
+describe('Pokemon name submissions', () => {
+    it('Input correct pokemon name, submit data, and find card', () => {
+        cy.visit('/')
+        cy.get('#inputQuery').type('charizard');
+        cy.get('#submitButton').click();
+        cy.get('#cardHolder').children().should('have.length', 1);
+    })
+
+    it('Input capitalized pokemon name, submit data, and find card', () => {
+        cy.visit('/')
+        cy.get('#inputQuery').type('CHARIZARD');
+        cy.get('#submitButton').click();
+        cy.get('#cardHolder').children().should('have.length', 1);
+    })
+
+    it('Input invalid pokemon name, submit data, and check for no cards', () => {
+        cy.visit('/');
+        cy.get('#inputQuery').type('bigyoshi');
+        cy.get('#submitButton').click();
+        cy.get('#cardHolder').children().should('have.length', 0);
+    })
+});
