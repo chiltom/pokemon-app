@@ -61,7 +61,7 @@ function App() {
           <Navbar.Brand href='#home' className='text-gray-200'>
             <Image 
               alt='Pikachu'
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png"
+              src="https://i.kym-cdn.com/photos/images/newsfeed/001/297/938/8e6.png"
               width="30"
               height="30"
               className='d-inline-block align-top mb-0'
