@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
 
 function PokeForm ({ setPokeName }) {
     const [input, setInput] = useState("");
@@ -12,18 +13,18 @@ function PokeForm ({ setPokeName }) {
 
     return (
         <>
-            <div id='inputCont'>
-                <form id='userInput' onSubmit={handleSubmit}>
-                    <input
-                        type='text'
-                        name='pokeName'
-                        placeholder="Enter a pokemon's name:"
-                        value={input}
-                        onChange={e => setInput(e.target.value)}
-                    />
-                    <input type='submit' onSubmit={handleSubmit}/>
-                </form>
-            </div>
+            <Form>
+                <Form.Label htmlFor='inputQuery'>Search: </Form.Label>
+                <Form.Control
+                    size='sm'
+                    type='text'
+                    id='inputQuery'
+                    value={input}
+                    placeholder='Type here: '
+                    onChange={e => setInput(e.target.value)}
+                />
+                <Form.Control type='submit' onClick={handleSubmit}/>
+            </Form>
         </>
     )
 }
