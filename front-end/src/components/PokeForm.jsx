@@ -24,7 +24,7 @@ function PokeForm ({ setPokeName }) {
                     placeholder='Type here: '
                     onChange={e => setInput(e.target.value)}
                 />
-                <Form.Control size='sm' type='submit' onClick={handleSubmit}/>
+                <Form.Control size='sm' type='submit' id='submitButton' onClick={handleSubmit}/>
             </Form>
         </>
     )

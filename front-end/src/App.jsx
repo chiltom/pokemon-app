@@ -35,7 +35,6 @@ function App() {
         'moves': getRandMoves(pokeData.moves),
       }]);
     }
-    console.log(pokemon)
   }, [pokeData]);
 
   // API call for pokemon name specified, if good set pokemon data, if not alert error
@@ -57,7 +56,7 @@ function App() {
   return (
     <>
       <Navbar className='bg-body-tertiary' bg='dark' data-bs-theme='dark' sticky='top'>
-        <Container>
+        <Container id='navCont'>
           <Navbar.Brand href='#home' className='text-gray-200'>
             <Image 
               alt='Pikachu'

@@ -50,7 +50,7 @@ function PokeCards({ pokemon }) {
 
     return (
         <Container>
-            <Row xs={2} md={3} lg={4}>
+            <Row id='cardHolder' xs={2} md={3} lg={4}>
                 {pokemon.map((mon, i) => (
                     <Col key={i}>
                         <Card className='bg-stone-600 text-gray-200' style={{width: '12rem'}}>
