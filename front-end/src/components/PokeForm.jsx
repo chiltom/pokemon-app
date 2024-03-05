@@ -14,7 +14,7 @@ function PokeForm ({ setPokeName }) {
     return (
         <>
             <Form className='flex flex-row items-baseline'>
-                <Form.Label className="mr-4" htmlFor='inputQuery'>Search: </Form.Label>
+                <Form.Label className="mr-4 text-gray-200" htmlFor='inputQuery'>Search: </Form.Label>
                 <Form.Control
                     className='w-40'
                     size='sm'

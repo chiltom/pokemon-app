@@ -1,23 +1,7 @@
+:root {
+  background-color: #2b3035;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-#happyPikachu {
-  mix-blend-mode: multiply;
-}
-
-input {
-  margin: 5px;
-}
-
-.cardImg {
-  width: 130px;
-  height: 130px;
-}
-
-li {
-  list-style-type: none;
+  background-color: #2b3035;
 }

@@ -13,16 +13,36 @@ function App() {
   const [pokeData, setPokeData] = useState(null);
   const [pokemon, setPokemon] = useState([]);
 
+  // Generate four random moves for a pokemon to spawn with
+  const getRandMoves = (moves) => {
+    let newMoves = [];
+    let randNum = 0;
+    for (let i = 0; i < 4; i++) {
+      randNum = Math.floor(Math.random() * moves.length);
+      newMoves.push(moves[randNum])
+    }
+    return newMoves
+  }
+
+  // Update pokemon when new pokemon data comes in from API calls
   useEffect(() => {
     if (pokeData) {
-      setPokemon([...pokemon, {'name': pokeData.name, 'types': pokeData.types, 'img': pokeData.sprites.front_default}]);
+      setPokemon([...pokemon, {
+        'name': pokeData.name, 
+        'types': pokeData.types, 
+        'img': pokeData.sprites.front_default,
+        'stats': pokeData.stats,
+        'moves': getRandMoves(pokeData.moves),
+      }]);
     }
+    console.log(pokemon)
   }, [pokeData]);
 
+  // API call for pokemon name specified, if good set pokemon data, if not alert error
   useEffect(() => {
     const getPokemonData = async () => {
       try {
-        const { data } = await axios.get(`http://pokeapi.co/api/v2/pokemon/${pokeName.toLowerCase()}`);
+        const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName.toLowerCase()}`);
         setPokeData(data);
       } catch(error) {
         alert(error.response.data);
@@ -36,19 +56,19 @@ function App() {
 
   return (
     <>
-      <Navbar className='bg-body-tertiary justify-content-between'>
+      <Navbar className='bg-body-tertiary' bg='dark' data-bs-theme='dark' sticky='top'>
         <Container>
-          <Navbar.Brand href='#home'>
+          <Navbar.Brand href='#home' className='text-gray-200'>
             <Image 
               alt='Pikachu'
-              src='https://i.pngimg.me/thumb/f/720/m2i8d3K9H7A0Z5G6.jpg'
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png"
               width="30"
               height="30"
-              className='d-inline-block align-top'
+              className='d-inline-block align-top mb-0'
             />{' '}
             PokeAPI Fetcher
           </Navbar.Brand>
-          <PokeForm setPokeName={setPokeName} />
+          <PokeForm className="" setPokeName={setPokeName} />
         </Container>
       </Navbar>
       <PokeCards pokemon={pokemon} />
